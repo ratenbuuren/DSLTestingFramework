@@ -105,13 +105,8 @@ public class GenericOptions {
 	 * @return the String representation of the JBehave story test case
 	 */
 	
-	public String generateStory(List<GenericAbstractElement> elements, String language){
-		if(language.equals("FFL")){
-			return new FFLStoryGenerator().generateStory(generateCases(elements));
-		}
-		else{
-			return new PrecedenceStoryGenerator().generateStory(generateCases(elements));
-		}
+	public String generateStory(List<GenericAbstractElement> elements){
+		return new PrecedenceStoryGenerator().generateStory(generateCases(elements));
 	}
 	
 	/**
@@ -123,13 +118,8 @@ public class GenericOptions {
 	 * @return the String representation of the Selenium test case
 	 */
 	
-	public String generateSelenium(List<GenericAbstractElement> elements, String language, String modelName){
-		if(language.equals("FFL")){
-			return new FFLSeleniumGenerator().generateTest(generateCases(elements), modelName);
-		}
-		else{
-			return new PrecedenceSeleniumGenerator().generateTest(generateCases(elements), modelName);
-		}
+	public String generateSelenium(List<GenericAbstractElement> elements, String modelName){
+		return new PrecedenceSeleniumGenerator().generateTest(generateCases(elements), modelName);
 	}
 	
 	/**
